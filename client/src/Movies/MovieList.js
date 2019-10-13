@@ -10,14 +10,18 @@ export default class MovieList extends Component {
     };
   }
 
+
   componentDidMount() {
     axios
       .get("http://localhost:5000/api/movies")
       .then(res => this.setState({ movies: res.data }))
       .catch(err => console.log(err.response));
+
+      
   }
 
   render() {
+  console.log('MovieList props:', this.props)    
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (
@@ -31,7 +35,8 @@ export default class MovieList extends Component {
 function MovieDetails({ movie }) {
   return (
     <Link to={`/movies/${movie.id}`}>
-      <MovieCard movie={movie} />
+      <MovieCard movie={movie}  />
+
     </Link>
   );
 }
