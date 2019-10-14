@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
-import UpdateForm from "./UpdateForm";
 
 export default class Movie extends React.Component {
   constructor(props) {

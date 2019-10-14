@@ -41,10 +41,13 @@ const UpdateForm = props => {
             .catch(err => console.log('Ahhh BUG', err));
     };
 
+    console.log(movie);
     return (
+        
         <div className='form-container'>
             <h2>Update Movie</h2>
             <form onSubmit={handleSubmit}>
+                Movie Title:
                 <input
                     type='text'
                     name='title'
@@ -52,6 +55,7 @@ const UpdateForm = props => {
                     value={movie.title}
                     onChange={handleChange}
                 /><br />
+                Director:
                 <input 
                     type='text'
                     name='director'
@@ -59,6 +63,7 @@ const UpdateForm = props => {
                     value={movie.director}
                     onChange={handleChange}
                 /><br />
+                Metascore:
                 <input
                     type='number'
                     name='metascore'
@@ -66,6 +71,21 @@ const UpdateForm = props => {
                     value={movie.metascore}
                     onChange={handleChange}
                 /><br />
+                Movie Stars:
+                {movie.stars.map(star => {
+                    console.log(star);
+                    return (
+                        <>
+                        <input
+                            type='text'
+                            name='star'
+                            placeholder='Movie Star'
+                            value={star}
+                            onChange={handleChange}
+                        /><br />
+                        </>
+                    )
+                })}
                 <button>Update</button>
             </form>
         </div>
